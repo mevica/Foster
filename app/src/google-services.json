@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "123611406848",
+    "firebase_url": "https://poster-ad9b9.firebaseio.com",
+    "project_id": "poster-ad9b9",
+    "storage_bucket": "poster-ad9b9.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:123611406848:android:3d35755af4f874b2",
+        "android_client_info": {
+          "package_name": "com.example.forster"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "123611406848-uu2iemav7u23bskqb0tcp9epuvh928cq.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.example.forster",
+            "certificate_hash": "f3abe0c2842611bd936d904bc1279b7dad9fad94"
+          }
+        },
+        {
+          "client_id": "123611406848-l7bb0thctco1kmdobd5pvula2em52m9d.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyB20jBbSOVRgUVmpYlxharA8L1esQIp4oo"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "123611406848-l7bb0thctco1kmdobd5pvula2em52m9d.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
