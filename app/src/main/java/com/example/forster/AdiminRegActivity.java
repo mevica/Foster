@@ -16,9 +16,10 @@ import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 
-public class RegisterActivity extends AppCompatActivity {
-    EditText name,email,password,confirmpass;
-    Button register;
+public class AdiminRegActivity extends AppCompatActivity {
+
+    EditText email2,password2,confirmpass2;
+    Button reg;
 
     private FirebaseAuth mAuth;
 
@@ -32,34 +33,34 @@ public class RegisterActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_register);
-
-
+        setContentView(R.layout.activity_adimin_reg);
         mAuth=FirebaseAuth.getInstance();
         findIds();
-
+        validate();
     }
+
 
 
     private boolean validate() {
         boolean result =false;
-        String getname=name.getText().toString();
-        String getemail=email.getText().toString();
-        String getpassword=password.getText().toString();
-        String getconfirmpassword=confirmpass.getText().toString();
+        String getemail2=email2.getText().toString();
+        String getpassword2=password2.getText().toString();
+        String getconfirmpassword2=confirmpass2.getText().toString();
 
-        if (getname.isEmpty()){
-            Toast.makeText(this, "The user name is empty", Toast.LENGTH_SHORT).show();
 
-        }else if(getemail.isEmpty()) {
+
+        if(getemail2.isEmpty()) {
             Toast.makeText(this, "The email is empty", Toast.LENGTH_SHORT).show();
 
-        }else if(getpassword.isEmpty()){
+        }else if(getpassword2.isEmpty()){
             Toast.makeText(this, "the password is empty", Toast.LENGTH_SHORT).show();
 
-        }else if(getconfirmpassword.isEmpty()) {
+        }else if(getconfirmpassword2.isEmpty()){
             Toast.makeText(this, "the confirm password  is empty", Toast.LENGTH_SHORT).show();
+
         }
+
+
         else {
             result=true;
         }
@@ -71,20 +72,18 @@ public class RegisterActivity extends AppCompatActivity {
 
 
     private void findIds() {
-        name=(EditText)findViewById(R.id.etname);
-        email=(EditText)findViewById(R.id.etemail);
-        password=(EditText)findViewById(R.id.etpassword);
-        confirmpass=(EditText)findViewById(R.id.etconfirm);
+        email2=(EditText)findViewById(R.id.etemail2);
+        password2=(EditText)findViewById(R.id.etpassword2);
+        confirmpass2=(EditText)findViewById(R.id.etconfirm2);
 
-        register=(Button) findViewById(R.id.btnreg);
+        reg=(Button) findViewById(R.id.btnreg2);
 
     }
 
     public void MovetoLogin(View view) {
-
         if (validate()){
-            String reg_email=email.getText().toString().trim();
-            String reg_password=password.getText().toString().trim();
+            String reg_email=email2.getText().toString().trim();
+            String reg_password=password2.getText().toString().trim();
 
             mAuth.createUserWithEmailAndPassword(reg_email,reg_password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -92,12 +91,11 @@ public class RegisterActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if (task.isSuccessful()){
-                                Toast.makeText(RegisterActivity.this, "Registration was succefull", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegisterActivity.this,VerificationActivity.class));
+                                Toast.makeText(AdiminRegActivity.this, "Registration was succefull", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(AdiminRegActivity.this,AdminLoginActivity.class));
 
                             }else{
-                                Toast.makeText(RegisterActivity.this, "Registration not succefull", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(RegisterActivity.this,VerificationActivity.class));
+                                Toast.makeText(AdiminRegActivity.this, "Registration not succefull", Toast.LENGTH_SHORT).show();
 
                             }
                         }
@@ -105,5 +103,6 @@ public class RegisterActivity extends AppCompatActivity {
         }
 
     }
-    }
+}
+
 

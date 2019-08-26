@@ -8,7 +8,6 @@ import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
-import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -16,34 +15,39 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 
-public class MainActivity extends AppCompatActivity {
+public class AdminLoginActivity extends AppCompatActivity {
 
-    EditText mEmail,mPass;
-    Button login;
-    TextView mtvReg;
+    EditText Email,Pass,phone;
+    Button mlogin;
+
     private FirebaseAuth mAuth;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mEmail=(EditText)findViewById(R.id.etemail);
-        mPass=(EditText)findViewById(R.id.etpass);
-        login=(Button) findViewById(R.id.btnlogin);
-        mtvReg=(TextView)findViewById(R.id.tvReg);
+        setContentView(R.layout.activity_admin_login);
+        Email=(EditText)findViewById(R.id.etemail2);
+        Pass=(EditText)findViewById(R.id.etpass2);
+      //  phone=(EditText)findViewById(R.id.etphone);
+        mlogin=(Button) findViewById(R.id.btnlogin2);
 
         mAuth= FirebaseAuth.getInstance();
     }
 
     private boolean validate() {
         boolean result=false;
-        String getmEmail=mEmail.getText().toString();
-        String getmPass=mPass.getText().toString();
-        if (getmEmail.isEmpty()){
+        String getEmail=Email.getText().toString();
+        String getPass=Pass.getText().toString();
+      //  String getphone=phone.getText().toString();
+        if (getEmail.isEmpty()) {
             Toast.makeText(this, "the email is empty", Toast.LENGTH_SHORT).show();
 
-        }else if (getmPass.isEmpty()) {
+       // }else if (getphone.isEmpty()){
+         //   Toast.makeText(this, "id is empty is empty", Toast.LENGTH_SHORT).show();
+
+
+        }else if (getPass.isEmpty()) {
             Toast.makeText(this, "the password is empty", Toast.LENGTH_SHORT).show();
 
         }else{
@@ -53,13 +57,12 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-
-
-    public void LoginUser(View view) {
+    public void LoginAdmin(View view) {
         if (validate()){
 
-            String email=mEmail.getText().toString().trim();
-            String password=mPass.getText().toString().trim();
+            String email=Email.getText().toString().trim();
+            String password=Pass.getText().toString().trim();
+            // String Phone=phone.getText().toString().trim();
 
             mAuth.signInWithEmailAndPassword(email,password)
                     .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
@@ -67,10 +70,10 @@ public class MainActivity extends AppCompatActivity {
                         public void onComplete(@NonNull Task<AuthResult> task) {
 
                             if (task.isSuccessful()){
-                                Toast.makeText(MainActivity.this, "Login succesfull", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(MainActivity.this, RecyclerviewActivity.class));
+                                Toast.makeText(AdminLoginActivity.this, "Login succesfull", Toast.LENGTH_SHORT).show();
+                                startActivity(new Intent(AdminLoginActivity.this, AdmininsertActivity.class));
                             }else {
-                                Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
+                                Toast.makeText(AdminLoginActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
 
                             }
                         }
@@ -78,13 +81,12 @@ public class MainActivity extends AppCompatActivity {
 
 
         }
-
     }
 
-    public void gotoreg(View view) {
-        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+    public void gotoreg2(View view) {
+        startActivity(new Intent(AdminLoginActivity.this, AdiminRegActivity.class));
 
     }
-
-
 }
+
+

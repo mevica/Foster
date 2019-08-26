@@ -20,12 +20,17 @@ public class Page1Activity extends AppCompatActivity {
     }
 
     public void movetoreg(View view) {
-        startActivity(new Intent(Page1Activity.this, RegisterActivity.class));
+        startActivity(new Intent(Page1Activity.this, SignUpActivity.class));
 
     }
 
     public void gotoaboutus(View view) {
         startActivity(new Intent(Page1Activity.this, AboutusActivity.class));
+
+    }
+
+    public void MovetoAdmin(View view) {
+        startActivity(new Intent(Page1Activity.this, AdminLoginActivity.class));
 
     }
 }

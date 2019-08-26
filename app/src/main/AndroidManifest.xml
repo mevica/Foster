@@ -1,6 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.forster">
+<uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.INTERNET" />
 
     <application
         android:allowBackup="true"
@@ -9,7 +11,14 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".AboutusActivity"></activity>
+
+        <activity android:name=".SignUpActivity" />
+        <activity android:name=".CommActivity" />
+        <activity android:name=".RecyclerviewActivity" />
+        <activity android:name=".AdmininsertActivity" />
+        <activity android:name=".AdiminRegActivity" />
+        <activity android:name=".AdminLoginActivity" />
+        <activity android:name=".AboutusActivity" />
         <activity android:name=".Page1Activity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -19,7 +28,7 @@
         </activity>
         <activity android:name=".VerificationActivity" />
         <activity android:name=".RegisterActivity" />
-        <activity android:name=".MainActivity"></activity>
+        <activity android:name=".MainActivity" />
     </application>
 
 </manifest>

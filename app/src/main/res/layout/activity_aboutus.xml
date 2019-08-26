@@ -7,9 +7,18 @@
     android:orientation="vertical"
     tools:context=".AboutusActivity">
 
-    <Space
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="30dp" />
+        android:layout_height="144dp"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="wrap_content"
+            android:layout_height="147dp"
+            android:layout_weight="1"
+            app:srcCompat="@drawable/focus" />
+    </LinearLayout>
 
     <TextView
         android:id="@+id/textView4"
@@ -29,71 +38,85 @@
         <TextView
             android:id="@+id/textView6"
             android:layout_width="match_parent"
-            android:layout_height="38dp"
+            android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:text="Focus Foster Care is  fountation that temporarily keeps children safe due
-            to lack of functioning home an finds the safer homes for them to stay and grow in." />
+            android:text="Focus Foster Care is  fountation that temporarily keeps children safe due to lack of functioning home an finds the safer homes for them to stay and grow in." />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
-            android:layout_height="32dp"
+            android:layout_height="29dp"
             android:layout_weight="1"
             android:text=" We are located in Nairobi at Kasarani." />
-
-    </LinearLayout>
-
-    <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView9"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MOTTO:"
-            android:textSize="30sp"
+            android:textAlignment="center"
             android:textColor="@color/purple"
-            android:textAlignment="center"/>
+            android:textSize="30sp" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="196dp"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/textView10"
-            android:textAlignment="center"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Have a Heart and Give Child A Start  " />
+            android:text="Have a Heart and Give Child A Start  "
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textView11"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="VISION:"
-            android:textSize="30sp"
+            android:textAlignment="center"
             android:textColor="@color/purple"
-            android:textAlignment="center"/>
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="Safe and healthy children, families and communities"
-            android:textAlignment="center"/>
+            android:textAlignment="center" />
 
         <TextView
             android:id="@+id/textView13"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="MISSION:"
-            android:textSize="30sp"
+            android:textAlignment="center"
             android:textColor="@color/purple"
-            android:textAlignment="center"/>
+            android:textSize="30sp" />
 
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:textAlignment="center"
-            android:text="Child and family services strengthens families and promotes the well-being of childern through prevention,intervention,education and advocacy." />
+            android:text="Child and family services strengthens families and promotes the well-being of children through prevention,intervention,education and advocacy."
+            android:textAlignment="center" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="horizontal">
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:foreground="@drawable/familylove"
+            app:srcCompat="@drawable/famblack" />
     </LinearLayout>
 </LinearLayout>
