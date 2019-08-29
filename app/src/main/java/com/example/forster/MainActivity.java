@@ -68,7 +68,7 @@ public class MainActivity extends AppCompatActivity {
 
                             if (task.isSuccessful()){
                                 Toast.makeText(MainActivity.this, "Login succesfull", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(MainActivity.this, RecyclerviewActivity.class));
+                                startActivity(new Intent(MainActivity.this, LoadingActivity.class));
                             }else {
                                 Toast.makeText(MainActivity.this, "Login failed", Toast.LENGTH_SHORT).show();
 
@@ -82,7 +82,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void gotoreg(View view) {
-        startActivity(new Intent(MainActivity.this, RegisterActivity.class));
+        startActivity(new Intent(MainActivity.this, SignUpActivity.class));
 
     }
 

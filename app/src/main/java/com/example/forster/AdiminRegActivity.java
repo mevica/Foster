@@ -18,90 +18,68 @@ import com.google.firebase.auth.FirebaseUser;
 
 public class AdiminRegActivity extends AppCompatActivity {
 
-    EditText email2,password2,confirmpass2;
-    Button reg;
+
+    EditText mName, mEmail, mPassword, mConfirmpass;
 
     private FirebaseAuth mAuth;
-
-    @Override
-    protected void onStart() {
-        super.onStart();
-        FirebaseUser currentUser=mAuth.getCurrentUser();
-    }
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_adimin_reg);
-        mAuth=FirebaseAuth.getInstance();
+        mAuth = FirebaseAuth.getInstance();
         findIds();
-        validate();
     }
 
+    public void SignUp(View view) {
+
+        String email = mEmail.getText().toString();
+        String pass = mPassword.getText().toString();
+
+        mAuth.createUserWithEmailAndPassword(email, pass)
+                .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
+                    @Override
+                    public void onComplete(@NonNull Task<AuthResult> task) {
+                        if (task.isSuccessful()) {
+                            Toast.makeText(AdiminRegActivity.this, "Success", Toast.LENGTH_SHORT).show();
+                            startActivity(new Intent(AdiminRegActivity.this,VerificationActivity.class));
+
+                        } else {
+                            Toast.makeText(AdiminRegActivity.this, "Not successful", Toast.LENGTH_SHORT).show();
+                        }
+                    }
+                });
 
 
+    }
+
+    private void findIds() {
+        mEmail = (EditText) findViewById(R.id.etemail2);
+        mPassword = (EditText) findViewById(R.id.etpassword2);
+        mConfirmpass = (EditText) findViewById(R.id.etconfirm2);
+
+
+    }
     private boolean validate() {
         boolean result =false;
-        String getemail2=email2.getText().toString();
-        String getpassword2=password2.getText().toString();
-        String getconfirmpassword2=confirmpass2.getText().toString();
+        String getemail=mEmail.getText().toString();
+        String getpassword=mPassword.getText().toString();
+        String getconfirmpassword=mConfirmpass.getText().toString();
 
 
-
-        if(getemail2.isEmpty()) {
+         if(getemail.isEmpty()) {
             Toast.makeText(this, "The email is empty", Toast.LENGTH_SHORT).show();
 
-        }else if(getpassword2.isEmpty()){
+        }else if(getpassword.isEmpty()){
             Toast.makeText(this, "the password is empty", Toast.LENGTH_SHORT).show();
 
-        }else if(getconfirmpassword2.isEmpty()){
+        }else if(getconfirmpassword.isEmpty()) {
             Toast.makeText(this, "the confirm password  is empty", Toast.LENGTH_SHORT).show();
-
         }
-
-
         else {
             result=true;
         }
         return result;
-    }
-
-
-
-
-
-    private void findIds() {
-        email2=(EditText)findViewById(R.id.etemail2);
-        password2=(EditText)findViewById(R.id.etpassword2);
-        confirmpass2=(EditText)findViewById(R.id.etconfirm2);
-
-        reg=(Button) findViewById(R.id.btnreg2);
-
-    }
-
-    public void MovetoLogin(View view) {
-        if (validate()){
-            String reg_email=email2.getText().toString().trim();
-            String reg_password=password2.getText().toString().trim();
-
-            mAuth.createUserWithEmailAndPassword(reg_email,reg_password)
-                    .addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
-                        @Override
-                        public void onComplete(@NonNull Task<AuthResult> task) {
-
-                            if (task.isSuccessful()){
-                                Toast.makeText(AdiminRegActivity.this, "Registration was succefull", Toast.LENGTH_SHORT).show();
-                                startActivity(new Intent(AdiminRegActivity.this,AdminLoginActivity.class));
-
-                            }else{
-                                Toast.makeText(AdiminRegActivity.this, "Registration not succefull", Toast.LENGTH_SHORT).show();
-
-                            }
-                        }
-                    });
-        }
-
     }
 }
 

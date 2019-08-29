@@ -1,11 +1,16 @@
 package com.example.forster;
 
 import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 
 import com.google.firebase.database.DataSnapshot;
@@ -23,9 +28,8 @@ public class RecyclerviewActivity extends AppCompatActivity {
     private FirebaseDatabase mDatabase;
     private ArrayList<Child> arrayList;
     private ArrayList<String> categoryList;
-    //private FirebaseRecyclerOptions<Child> options;
-    // private FirebaseRecyclerAdapter<Child, FirebaseViewholder> adapter;
-    ImageView image;
+    ImageView image ,call;
+    Button btn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -34,15 +38,15 @@ public class RecyclerviewActivity extends AppCompatActivity {
 
         image = (ImageView) findViewById(R.id.childimg);
 
+
+
         mDatabase = FirebaseDatabase.getInstance();
         mRef = mDatabase.getReference();
-        //mRef = mDatabase.getReference().Child("children");
-        // mRef.keepSynced(true);
+
 
         mChildlist = (RecyclerView) findViewById((R.id.myrecyclerview));
         mChildlist.setHasFixedSize(true);
         mChildlist.setLayoutManager(new LinearLayoutManager(this));
-        // final List<Child>arrayList=new ArrayList<>();
 
         mRef.child("children").limitToLast(20).addValueEventListener(new ValueEventListener() {
             @Override
@@ -61,12 +65,19 @@ public class RecyclerviewActivity extends AppCompatActivity {
 
             }
         });
+       // call = (ImageView) findViewById(R.id.imgcall);
+       // btn = (Button) findViewById(R.id.btncall);
 
-        // ActionBar actionBar = getSupportActionBar();
-        // actionBar.setTitle("Children List");
 
-        // options = new FirebaseRecyclerOptions.Builder<Child>().setQuery(mRef, Child.class).build();
-        // adapter = new FirebaseRecyclerAdapter<Child, FirebaseViewholder>(options) {
+    }
+}
+
+
+// ActionBar actionBar = getSupportActionBar();
+// actionBar.setTitle("Children List");
+
+// options = new FirebaseRecyclerOptions.Builder<Child>().setQuery(mRef, Child.class).build();
+// adapter = new FirebaseRecyclerAdapter<Child, FirebaseViewholder>(options) {
 
 
 //            @NonNull
@@ -83,10 +94,8 @@ public class RecyclerviewActivity extends AppCompatActivity {
 //
 //
 //
-//        mChildlist.setAdapter(adapter);
+//        mChildlist.setAdapter(adapter
 
-
-    }
 
 //    @Override
 //    protected void onStart() {
@@ -107,5 +116,6 @@ public class RecyclerviewActivity extends AppCompatActivity {
 //            }
 //        });
 //    }
-}
+
+
 

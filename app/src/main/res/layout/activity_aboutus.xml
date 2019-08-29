@@ -4,21 +4,28 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+
     android:orientation="vertical"
     tools:context=".AboutusActivity">
 
     <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="144dp"
+        android:layout_height="104dp"
         android:orientation="horizontal">
 
         <ImageView
             android:id="@+id/imageView3"
             android:layout_width="wrap_content"
-            android:layout_height="147dp"
+            android:layout_height="114dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/focus" />
+            app:srcCompat="@drawable/logo" />
     </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:background="@color/purple"
+        android:layout_height="7dp"
+        android:orientation="horizontal"></LinearLayout>
 
     <TextView
         android:id="@+id/textView4"
@@ -40,13 +47,17 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
+            android:textColor="@color/black"
+            android:textAlignment="center"
             android:text="Focus Foster Care is  fountation that temporarily keeps children safe due to lack of functioning home an finds the safer homes for them to stay and grow in." />
 
         <TextView
             android:id="@+id/textView8"
             android:layout_width="match_parent"
             android:layout_height="29dp"
+            android:textColor="@color/black"
             android:layout_weight="1"
+            android:textAlignment="center"
             android:text=" We are located in Nairobi at Kasarani." />
 
         <TextView
@@ -68,6 +79,7 @@
         <TextView
             android:id="@+id/textView10"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="Have a Heart and Give Child A Start  "
             android:textAlignment="center" />
@@ -84,6 +96,7 @@
         <TextView
             android:id="@+id/textView12"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="Safe and healthy children, families and communities"
             android:textAlignment="center" />
@@ -100,6 +113,7 @@
         <TextView
             android:id="@+id/textView14"
             android:layout_width="match_parent"
+            android:textColor="@color/black"
             android:layout_height="wrap_content"
             android:text="Child and family services strengthens families and promotes the well-being of children through prevention,intervention,education and advocacy."
             android:textAlignment="center" />
@@ -114,7 +128,7 @@
         <ImageView
             android:id="@+id/imageView5"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
+            android:layout_height="225dp"
             android:layout_weight="1"
             android:foreground="@drawable/familylove"
             app:srcCompat="@drawable/famblack" />

@@ -55,5 +55,28 @@ public class SignUpActivity extends AppCompatActivity {
         mPassword = (EditText) findViewById(R.id.etpassword);
 
     }
+    private boolean validate() {
+        boolean result =false;
+        String getname=mName.getText().toString();
+        String getemail=mEmail.getText().toString();
+        String getpassword=mPassword.getText().toString();
+        String getconfirmpassword=mConfirmpass.getText().toString();
 
+        if (getname.isEmpty()){
+            Toast.makeText(this, "The user name is empty", Toast.LENGTH_SHORT).show();
+
+        }else if(getemail.isEmpty()) {
+            Toast.makeText(this, "The email is empty", Toast.LENGTH_SHORT).show();
+
+        }else if(getpassword.isEmpty()){
+            Toast.makeText(this, "the password is empty", Toast.LENGTH_SHORT).show();
+
+        }else if(getconfirmpassword.isEmpty()) {
+            Toast.makeText(this, "the confirm password  is empty", Toast.LENGTH_SHORT).show();
+        }
+        else {
+            result=true;
+        }
+        return result;
+    }
 }

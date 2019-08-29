@@ -19,7 +19,7 @@
             android:layout_width="wrap_content"
             android:layout_height="168dp"
             android:layout_weight="1"
-            app:srcCompat="@drawable/focus" />
+            app:srcCompat="@drawable/logo" />
 
     </LinearLayout>
 
@@ -27,7 +27,7 @@
         android:id="@+id/textView2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="   LOGIN"
+        android:text="   ADMIN LOGIN"
         android:textColor="@color/purple"
         android:textSize="30sp" />
 
@@ -86,7 +86,7 @@
         android:id="@+id/tvreg"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Register"
+        android:text="Admin Register"
         android:textAlignment="center"
         android:onClick="gotoreg2"/>
 

@@ -9,17 +9,19 @@
 
 
     <LinearLayout
-        android:layout_width="match_parent"
-        android:layout_height="170dp"
-        android:orientation="horizontal">
+        android:layout_width="230dp"
+        android:layout_height="155dp"
+        android:orientation="vertical"
+        android:layout_gravity="center"
+        >
 
         <ImageView
             android:id="@+id/imageView2"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_weight="1"
-            android:foreground="@drawable/focus"
-            app:srcCompat="@drawable/focus" />
+            android:foreground="@drawable/logo"
+            app:srcCompat="@drawable/logo" />
     </LinearLayout>
 
     <LinearLayout
@@ -120,7 +122,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:background="@drawable/button"
-            android:onClick="MovetoLogin"
+
             android:text="VERIFICATION" />
 
 

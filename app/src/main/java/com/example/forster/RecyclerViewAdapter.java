@@ -1,11 +1,14 @@
 package com.example.forster;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.net.Uri;
 import android.util.Base64;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -42,6 +45,25 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
         Bitmap decodedByte= BitmapFactory.decodeByteArray(decodedString,0,decodedString.length);
         ((MyViewHolder) holder).Image.setImageBitmap(decodedByte);
 
+        ((MyViewHolder) holder).call.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_DIAL);
+                intent.setData(Uri.parse("tel:0706449999"));
+                mContext.startActivity(intent);
+            }
+        });
+        ((MyViewHolder) holder).msg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(Intent.ACTION_VIEW);
+                intent.setData(Uri.fromParts("sms","0706449999",null));
+                mContext.startActivity(intent);
+
+
+            }
+        });
+
     }
 
     @Override
@@ -49,14 +71,17 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter {
 
 
     private class MyViewHolder extends RecyclerView.ViewHolder{
-        ImageView Image;
+        ImageView Image,call,msg;
         TextView Name ,Description;
+
 
         public MyViewHolder(@NonNull View itemView) {
             super(itemView);
             Image=itemView.findViewById(R.id.childimg);
             Name=itemView.findViewById(R.id.tvname);
             Description=itemView.findViewById(R.id.tvdesc);
+            call = itemView. findViewById(R.id.imgcall);
+            msg = itemView. findViewById(R.id.imgmsg);
         }
 
 
